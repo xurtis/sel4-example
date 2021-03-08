@@ -27,6 +27,7 @@ ApplyData61ElfLoaderSettings(${KernelPlatform} ${KernelSel4Arch})
 elfloader_import_project()
 
 sel4_import_libsel4()
+sel4runtime_import_project()
 
 # Set up runtime
 include(environment_flags)
