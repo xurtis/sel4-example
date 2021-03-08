@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     Copyright 2021, Data61, CSIRO (ABN 41 687 119 230)
+
+     SPDX-License-Identifier: BSD-2-Clause
+-->
+<manifest>
+
+
+<remote name="seL4" fetch="../sel4" />
+<remote name="cmillar" fetch="../~cmillar" />
+
+<default revision="master" remote="seL4" />
+
+<project name="seL4.git" path="kernel"/>
+<project name="seL4_tools.git" path="tools/seL4">
+    <linkfile src="cmake-tool/init-build.sh" dest="init-build.sh"/>
+    <linkfile src="cmake-tool/griddle" dest="griddle"/>
+</project>
+<project name="sel4runtime.git" path="projects/sel4runtime"/>
+<project name="mq-health-check.git" remote="cmillar" path="projects/sel4test">
+    <linkfile src="easy-settings.cmake" dest="easy-settings.cmake"/>
+</project>
+<project name="riscv-pk" revision="fix-32bit" path="tools/riscv-pk"/>
+
+</manifest>
