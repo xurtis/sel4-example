@@ -18,6 +18,7 @@
     <linkfile src="cmake-tool/griddle" dest="griddle"/>
 </project>
 <project name="sel4runtime.git" path="projects/sel4runtime"/>
+<project name="util_libs.git" path="projects/util_libs"/>
 <project name="mq-health-check.git" remote="cmillar" path="projects/mq-health-check">
     <linkfile src="easy-settings.cmake" dest="easy-settings.cmake"/>
 </project>
