@@ -14,7 +14,7 @@ SYSTEMS=$( \
 		| tr '	' ':' \
 )
 
-RESULTS="$(mktemp ${TMPDIR}/health-check.XXXX.log)"
+RESULTS="$(mktemp health-check.XXXX.log)"
 echo "Recording results to ${RESULTS}"
 
 for system in ${SYSTEMS}; do
