@@ -87,3 +87,19 @@ void __assert_fail (
     debug_puts(".\n");
     sel4runtime_exit(-1);
 }
+
+/* GCC for aarch32 requires raise to be defined */
+int raise(int sig)
+{
+    sel4runtime_exit(-sig);
+    return -sig;
+}
+
+/* GCC on aarch32 requires memset */
+void *__sel4runtime_memset(void *dest, int c, sel4runtime_size_t n);
+
+void *memset(void *s, int c, sel4runtime_size_t n)
+{
+    return __sel4runtime_memset(s, c, n);
+}
+

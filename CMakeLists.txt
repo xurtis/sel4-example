@@ -13,6 +13,7 @@ project(mq-health-check C CXX ASM)
 find_package(seL4 REQUIRED)
 find_package(elfloader-tool REQUIRED)
 find_package(sel4runtime REQUIRED)
+find_package(util_libs REQUIRED)
 
 # Set the roottask CNode size to be large enough for DTB, timer caps, etc
 # Note that this works for the platforms that we have at the moment, and may
@@ -25,9 +26,6 @@ sel4_import_kernel()
 # Elfloader settings that correspond to how Data61 sets its boards up.
 ApplyData61ElfLoaderSettings(${KernelPlatform} ${KernelSel4Arch})
 elfloader_import_project()
-
-sel4_import_libsel4()
-sel4runtime_import_project()
 
 # Set up runtime
 include(environment_flags)
@@ -60,6 +58,10 @@ add_fpu_compilation_options()
 # Now all platform compilation flags have been set, we can check the compiler against flags
 include(check_arch_compiler)
 check_arch_compiler()
+
+sel4_import_libsel4()
+sel4runtime_import_project()
+util_libs_import_libraries()
 
 # Define the executable
 add_executable(health-check EXCLUDE_FROM_ALL roottask.c)
