@@ -14,7 +14,8 @@ SYSTEMS=$( \
 		| tr '	' ':' \
 )
 
-RESULTS="$(mktemp health-check.XXXX.log)"
+RESULTS="$(mktemp ${TMPDIR}/health-check.XXXX.log)"
+echo "Recording results to ${RESULTS}"
 
 for system in ${SYSTEMS}; do
 	machine=${system%:*}
@@ -45,8 +46,8 @@ for system in ${SYSTEMS}; do
 			-c "Health check passed" \
 			-s "${machine}" \
 			${images} \
-			&& echo "MQ-PASS ${machine}" | tee -a "${RESULTS}") \
-			|| echo "MQ-FAIL ${machine}" | tee -a "${RESULTS}"
+			&& (echo "MQ-PASS ${machine}" | tee -a "${RESULTS}")) \
+			|| (echo "MQ-FAIL ${machine}" | tee -a "${RESULTS}")
 	)
 done
 
