@@ -5,6 +5,9 @@ if ! command -V s4c > /dev/null; then
 	alias s4c=
 fi
 
+# Timeout for each test in seconds
+TIMEOUT=20
+
 # Get systems from machine queue
 SYSTEMS=$( \
 	mq.sh system-tsv \
@@ -45,6 +48,7 @@ for system in ${SYSTEMS}; do
 		(mq.sh run \
 			-c "Health check passed" \
 			-s "${machine}" \
+			-d "${TIMEOUT}" \
 			${images} \
 			&& (echo "MQ-PASS ${machine}" | tee -a "${RESULTS}")) \
 			|| (echo "MQ-FAIL ${machine}" | tee -a "${RESULTS}")
