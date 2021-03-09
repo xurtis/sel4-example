@@ -21,6 +21,7 @@
 <project name="util_libs.git" path="projects/util_libs"/>
 <project name="mq-health-check.git" remote="cmillar" path="projects/mq-health-check">
     <linkfile src="easy-settings.cmake" dest="easy-settings.cmake"/>
+    <linkfile src="run_manually.sh" dest="run_manually.sh"/>
 </project>
 <project name="riscv-pk" revision="fix-32bit" path="tools/riscv-pk"/>
 
