@@ -17,7 +17,7 @@ list(
         ${project_modules}
 )
 
-set(BBL_PATH ${project_dir}/tools/riscv-pk CACHE STRING "BBL Folder location")
+set(OPENSBI_PATH "${project_dir}/tools/opensbi" CACHE STRING "OpenSBI Folder location")
 
 include(application_settings)
 
