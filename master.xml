@@ -9,6 +9,7 @@
 
 <remote name="seL4" fetch="../sel4" />
 <remote name="cmillar" fetch="../~cmillar" />
+<remote fetch="https://github.com/riscv" name="opensbi"/>
 
 <default revision="master" remote="seL4" />
 
@@ -23,6 +24,6 @@
     <linkfile src="easy-settings.cmake" dest="easy-settings.cmake"/>
     <linkfile src="run_manually.sh" dest="run_manually.sh"/>
 </project>
-<project name="riscv-pk" revision="fix-32bit" path="tools/riscv-pk"/>
+<project name="opensbi" remote="opensbi" path="tools/opensbi"/>
 
 </manifest>
