@@ -17,7 +17,7 @@ SYSTEMS=$( \
 		| tr '	' ':' \
 )
 
-RESULTS="$(mktemp health-check.XXXX.log)"
+RESULTS="$(realpath -e $(mktemp health-check.XXXX.log))"
 echo "Recording results to ${RESULTS}"
 
 for system in ${SYSTEMS}; do
