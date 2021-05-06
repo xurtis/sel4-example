@@ -8,7 +8,7 @@ cmake_minimum_required(VERSION 3.7.2)
 
 include(settings.cmake)
 
-project(mq-health-check C CXX ASM)
+project(example C CXX ASM)
 
 find_package(seL4 REQUIRED)
 find_package(elfloader-tool REQUIRED)
@@ -64,9 +64,9 @@ sel4runtime_import_project()
 util_libs_import_libraries()
 
 # Define the executable
-add_executable(health-check EXCLUDE_FROM_ALL roottask.c)
-target_link_libraries(health-check PUBLIC sel4_autoconf sel4 sel4runtime)
+add_executable(example EXCLUDE_FROM_ALL roottask.c rt.c fail.c debug.c c.c)
+target_link_libraries(example PUBLIC sel4_autoconf sel4 sel4runtime)
 
 # Set this image as the rootserver
 include(rootserver)
-DeclareRootserver(health-check)
+DeclareRootserver(example)
