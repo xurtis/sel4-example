@@ -8,7 +8,7 @@
 
 
 <remote name="seL4" fetch="../sel4" />
-<remote name="cmillar" fetch="../~cmillar" />
+<remote name="cmillar" fetch="." />
 <remote fetch="https://github.com/riscv" name="opensbi"/>
 
 <default revision="master" remote="seL4" />
@@ -20,9 +20,8 @@
 </project>
 <project name="sel4runtime.git" path="projects/sel4runtime"/>
 <project name="util_libs.git" path="projects/util_libs"/>
-<project name="mq-health-check.git" remote="cmillar" path="projects/mq-health-check">
+<project name="sel4-example.git" remote="cmillar" path="projects/sel4-example">
     <linkfile src="easy-settings.cmake" dest="easy-settings.cmake"/>
-    <linkfile src="run_manually.sh" dest="run_manually.sh"/>
 </project>
 <project
     name="opensbi"
